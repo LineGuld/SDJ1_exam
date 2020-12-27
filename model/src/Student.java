@@ -64,13 +64,25 @@ public class Student
 
   public Grade[] getAllGrades()
   {
-    Grade[] gradeArray;
+    Grade[] gradeArray = new Grade[grades.size()];
+    for (int i = 0; i < grades.size(); i++)
+    {
+     Grade grade = grades.get(i);
+     gradeArray[i] = grade;
+    }
 
+    return gradeArray;
   }
 
   public Course[] getAllCourses()
   {
-    Course[] courseArray;
+    Course[] courseArray = new Course[courses.size()];
+    for (int i = 0; i < courses.size() ; i++)
+    {
+      Course course = courses.get(i);
+      courseArray[i] = course;
+    }
 
+    return courseArray;
   }
 }
