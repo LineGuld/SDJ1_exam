@@ -30,19 +30,47 @@ public class Student
 
   public void addGrade(int grade, Course course)
   {
-    //TODO skal kun tilføje karakteren hvis den er på den studerendes kursusliste
+    boolean hasCourse = false;
+
+    //For each course in courelist, the loop checks if the course in the list is tha same as provided.
+    //If they are the same is sets true, and otherwise it does nothing. In this way the loop can only change
+    // the boolean to true and will not change to false when the loop continues after getting a true.
+    for (Course course1: courses)
+    {
+      if (course1.equals(course))
+        hasCourse = true;
+    }
+
+    if (hasCourse)
+    {
+      Grade theGrade = new Grade(grade, course); //Turn information given into grade-object
+      grades.add(theGrade);
+    }
   }
 
   public double getGradeAverage()
   {
-    double average;
-    //TODO get sll grades, divide by length of array
+    double average = 0;
+
+    for (Grade grade: grades)
+    {
+      average += grade.getGrade();
+    }
+
+    average = average/grades.size();
+
     return average;
   }
 
   public Grade[] getAllGrades()
   {
     Grade[] gradeArray;
+
+  }
+
+  public Course[] getAllCourses()
+  {
+    Course[] courseArray;
 
   }
 }
