@@ -35,7 +35,7 @@ public class Student
     //For each course in courelist, the loop checks if the course in the list is tha same as provided.
     //If they are the same is sets true, and otherwise it does nothing. In this way the loop can only change
     // the boolean to true and will not change to false when the loop continues after getting a true.
-    for (Course course1: courses)
+    for (Course course1 : courses)
     {
       if (course1.equals(course))
         hasCourse = true;
@@ -43,7 +43,8 @@ public class Student
 
     if (hasCourse)
     {
-      Grade theGrade = new Grade(grade, course); //Turn information given into grade-object
+      Grade theGrade = new Grade(grade,
+          course); //Turn information given into grade-object
       grades.add(theGrade);
     }
   }
@@ -52,12 +53,12 @@ public class Student
   {
     double average = 0;
 
-    for (Grade grade: grades)
+    for (Grade grade : grades)
     {
       average += grade.getGrade();
     }
 
-    average = average/grades.size();
+    average = average / grades.size();
 
     return average;
   }
@@ -67,8 +68,8 @@ public class Student
     Grade[] gradeArray = new Grade[grades.size()];
     for (int i = 0; i < grades.size(); i++)
     {
-     Grade grade = grades.get(i);
-     gradeArray[i] = grade;
+      Grade grade = grades.get(i);
+      gradeArray[i] = grade;
     }
 
     return gradeArray;
@@ -77,7 +78,7 @@ public class Student
   public Course[] getAllCourses()
   {
     Course[] courseArray = new Course[courses.size()];
-    for (int i = 0; i < courses.size() ; i++)
+    for (int i = 0; i < courses.size(); i++)
     {
       Course course = courses.get(i);
       courseArray[i] = course;
