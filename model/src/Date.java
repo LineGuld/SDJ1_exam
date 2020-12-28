@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Date
 {
   private int day, month, year;
@@ -8,7 +10,17 @@ public class Date
     this.month = month;
     this.year = year;
 
-    //TODO validator for Date
+    if (month < 1)
+      this.month = 1;
+
+    if (month > 12)
+      this.month = 12;
+
+    if (year < 0)
+      this.year = -year;
+
+    if (day > numberOfDaysInMonth(month))
+      this.day = numberOfDaysInMonth(month);
   }
 
   public Date copy()
@@ -30,7 +42,35 @@ public class Date
 
   public String toString()
   {
-    return "";
-    // TODO date to string
+    DecimalFormat dayMonth = new DecimalFormat("00");
+    DecimalFormat yyyy = new DecimalFormat("0000");
+
+    return dayMonth.format(day) + "/" + dayMonth.format(month) + "/" + yyyy
+        .format(year);
+  }
+
+  //Extra stuff for validator thingy
+  public int numberOfDaysInMonth(int monthNumber)
+  {
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+        || month == 10 || month == 12)
+      return 31;
+
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+      return 30;
+
+    else if (isLeapYear() == false)
+      return 28;
+
+    return 29;
+  }
+
+  public boolean isLeapYear()
+  {
+    if ((year % 4 == 0) && (year % 100 != 0) || year % 400 == 0)
+      return true;
+
+    else
+      return false;
   }
 }
