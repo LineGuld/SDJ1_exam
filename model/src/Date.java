@@ -19,6 +19,9 @@ public class Date
     if (year < 0)
       this.year = -year;
 
+    if (day < 1)
+      this.day = -day;
+
     if (day > numberOfDaysInMonth(month))
       this.day = numberOfDaysInMonth(month);
   }

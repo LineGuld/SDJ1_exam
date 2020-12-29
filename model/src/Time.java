@@ -6,6 +6,7 @@ public class Time
 
   public Time(int hour, int minute, int second)
   {
+    //TODO validator
     this.hour = hour;
     this.minute = minute;
     this.second = second;
@@ -39,7 +40,7 @@ public class Time
       hour++;
     }
 
-    if (hour == 24)
+    if (hour >= 24)
     {
       second = 0;
       minute = 0;
