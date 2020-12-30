@@ -21,6 +21,6 @@ public class SkypeLesson extends OnlineLesson
 
   public String toString()
   {
-    return super.toString() + "\n Invite link: " + getInviteLink();
+    return super.toString() + "\n Invite link: " + getInviteLink() + "\n";
   }
 }

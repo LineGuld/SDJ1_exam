@@ -28,7 +28,6 @@ public class TestClass
     System.out.println(date1.equals(dateCopy));
 */
 
-
     // ----------------- TESTING TIME -------------------
     System.out.println("------ Time TEST -------- \n");
     System.out.println("-------- constructor and toString test ------");
@@ -81,13 +80,15 @@ public class TestClass
     System.out.println(file1);
     System.out.println(file2);*/
 
-    File[] res = {file1,file2,file3, file4};
+    File[] res = {file1, file2, file3, file4};
 
     // ----------------- TESTING Lesson-------------------
 
     Lesson regularLesson = new Lesson("Lesson", date2, time1, time3, res);
-    DiscordLesson discordLesson1 = new DiscordLesson("DiscordLesson", date1, time1, time3, res, false, "channel1", true);
-    SkypeLesson skypeLesson1 = new SkypeLesson("SkypeLesson", date1, time1, time3, res,true, "link.com");
+    DiscordLesson discordLesson1 = new DiscordLesson("DiscordLesson", date1,
+        time1, time3, res, false, "channel1", true);
+    SkypeLesson skypeLesson1 = new SkypeLesson("SkypeLesson", date1, time1,
+        time3, res, true, "link.com");
 
     System.out.println("--- LESSONS TO STRING ---");
  /*   System.out.println(regularLesson);
@@ -134,10 +135,14 @@ public class TestClass
     System.out.println(delayTest);*/
 
     // ----------------- TESTING COURSE-------------------
-    DiscordLesson discordLesson2 = new DiscordLesson("DiscordLesson2", new Date(23, 7, 2001), time1, time3, res, true, "channel1", true);
-    DiscordLesson discordLesson3 = new DiscordLesson("DiscordLesson3", new Date(22, 3, 1991), time1, time3, res, true, "channel1", false);
-    SkypeLesson skypeLesson2 = new SkypeLesson("SkypeLesson2", new Date(17, 11, 1994), time1, time3, res,true, "link.com");
-    SkypeLesson removeLesson = new SkypeLesson("RemoveLesson", new Date(14, 7, 1991), time1, time3, res,true, "link.com");
+    DiscordLesson discordLesson2 = new DiscordLesson("DiscordLesson2",
+        new Date(23, 7, 2001), time1, time3, res, true, "channel1", true);
+    DiscordLesson discordLesson3 = new DiscordLesson("DiscordLesson3",
+        new Date(22, 3, 1991), time1, time3, res, true, "channel1", false);
+    SkypeLesson skypeLesson2 = new SkypeLesson("SkypeLesson2",
+        new Date(17, 11, 1994), time1, time3, res, true, "link.com");
+    SkypeLesson removeLesson = new SkypeLesson("RemoveLesson",
+        new Date(14, 7, 1991), time1, time3, res, true, "link.com");
 
     Course sdj = new Course("SDJ-SW1");
     sdj.addLesson(regularLesson);
@@ -149,6 +154,26 @@ public class TestClass
     sdj.addLesson(skypeLesson2);
     sdj.addLesson(removeLesson);
 
-    System.out.println(sdj);
+    //System.out.println(sdj);
+
+    System.out.println(
+        "\n Number of lessons: " + sdj.getNumberOfLessons() + "\n Name: " + sdj
+            .getName() + "\n Lesson on date (false): " + sdj
+            .hasLessonOnDate(new Date(11, 11, 2000))
+            + "\n Lesson on date (true): " + sdj
+            .hasLessonOnDate(new Date(17, 11, 1994)));
+
+    sdj.removeLesson(removeLesson);
+    sdj.removeLesson(delayTest);
+
+    //System.out.println(sdj.getAllLessons());
+    // System.out.println(sdj.getAllTopics());
+    // System.out.println(sdj.getOnlineLessons());
+    //System.out.println(sdj.getSkypeLessons());
+    //System.out.println(sdj.getDiscordLessonsWithVoice());
+    //System.out.println(sdj.getAllResources());
+
+    // ----------------- TESTING GRADE-------------------
+
   }
 }

@@ -3,13 +3,13 @@ import java.util.ArrayList;
 
 public class Course
 {
-private String name;
-private ArrayList<Lesson> schedule;
+  private String name;
+  private ArrayList<Lesson> schedule;
 
   public Course(String name)
   {
     this.name = name;
-    ArrayList<Lesson> schedule = new ArrayList<>();
+    schedule = new ArrayList<>();
   }
 
   public String getName()
@@ -30,22 +30,18 @@ private ArrayList<Lesson> schedule;
 
   public void removeLesson(Lesson lesson)
   {
-    for (Lesson lessons: schedule)
-    {
-      if (lessons.equals(lesson))
-        schedule.remove(lesson);
-    }
+    schedule.remove(lesson);
   }
 
   public boolean hasLessonOnDate(Date date)
   {
     boolean hasLesson = false;
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
-     if (lesson.getDate().equals(date))
-     hasLesson = true;
+      if (lesson.getDate().equals(date))
+        hasLesson = true;
     }
-     return hasLesson;
+    return hasLesson;
   }
 
   public ArrayList<Lesson> getAllLessons()
@@ -57,19 +53,19 @@ private ArrayList<Lesson> schedule;
   {
     ArrayList<String> topicArray = new ArrayList<String>();
 
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       topicArray.add(lesson.getTopic());
     }
 
-    return  topicArray;
+    return topicArray;
   }
 
   public ArrayList<OnlineLesson> getOnlineLessons()
   {
     ArrayList<OnlineLesson> onlineLessons = new ArrayList<OnlineLesson>();
 
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       if (lesson instanceof OnlineLesson)
       {
@@ -85,7 +81,7 @@ private ArrayList<Lesson> schedule;
   {
     ArrayList<SkypeLesson> skypeLessons = new ArrayList<SkypeLesson>();
 
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       if (lesson instanceof SkypeLesson)
       {
@@ -100,7 +96,7 @@ private ArrayList<Lesson> schedule;
   {
     ArrayList<DiscordLesson> voiceLessons = new ArrayList<DiscordLesson>();
 
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       if (lesson instanceof DiscordLesson)
       {
@@ -117,7 +113,7 @@ private ArrayList<Lesson> schedule;
   {
     ArrayList<File> resources = new ArrayList<>();
 
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       File[] files = lesson.getResources();
       for (int i = 0; i < files.length; i++)
@@ -133,7 +129,7 @@ private ArrayList<Lesson> schedule;
   public String toString()
   {
     String lessonString = "";
-    for (Lesson lesson: schedule)
+    for (Lesson lesson : schedule)
     {
       lessonString += lesson.toString() + "\n";
     }

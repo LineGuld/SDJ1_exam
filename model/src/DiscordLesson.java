@@ -29,6 +29,6 @@ public class DiscordLesson extends OnlineLesson
   public String toString()
   {
     return super.toString() + "\n Channel name: " + getChannelName()
-        + "\n Voice channel: " + usesVoiceChannel();
+        + "\n Voice channel: " + usesVoiceChannel() + "\n";
   }
 }
