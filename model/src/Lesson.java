@@ -82,7 +82,7 @@ public class Lesson
       Time newEnd = new Time(newTimeSeconds);
       Time night = new Time(21, 15, 00);
 
-      if (newEnd.isBefore(night))
+      if (newEnd.isBefore(night) || newEnd.equals(night))
       {
         end = newEnd;
       }
@@ -93,7 +93,7 @@ public class Lesson
 
   public String getDateTimeString()
   {
-    return date.toString() + "Start: " + start.toString() + " End: " + end.toString();
+    return date.toString() + " Time: " + start.toString() + " - " + end.toString();
   }
 
   public String toString()

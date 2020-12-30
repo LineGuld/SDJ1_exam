@@ -9,6 +9,7 @@ private ArrayList<Lesson> schedule;
   public Course(String name)
   {
     this.name = name;
+    ArrayList<Lesson> schedule = new ArrayList<>();
   }
 
   public String getName()

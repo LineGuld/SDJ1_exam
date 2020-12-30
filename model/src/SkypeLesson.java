@@ -6,7 +6,7 @@ public class SkypeLesson extends OnlineLesson
       File[] resources, boolean screenShare, String link)
   {
     super(topic, date, start, end, resources, screenShare);
-    link = inviteLink;
+  inviteLink = link;
   }
 
   public String getInviteLink()

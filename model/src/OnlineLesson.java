@@ -6,7 +6,7 @@ public abstract class OnlineLesson extends Lesson
       File[] resources, boolean screenShare)
   {
     super(topic, date, start, end, resources);
-    screenShare = screenSharing;
+    screenSharing = screenShare;
   }
 
   public boolean teacherWillShareScreen()

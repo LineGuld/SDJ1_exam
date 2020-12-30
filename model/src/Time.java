@@ -6,7 +6,26 @@ public class Time
 
   public Time(int hour, int minute, int second)
   {
-    //TODO validator
+    if (second > 59 && minute < 59)
+    {
+      second = 0;
+      minute++;
+    }
+
+    if (second > 59 && minute == 59)
+    {
+      second = 0;
+      minute = 0;
+      hour++;
+    }
+
+    if (hour == 24)
+    {
+      second = 0;
+      minute = 0;
+      hour = 0;
+    }
+
     this.hour = hour;
     this.minute = minute;
     this.second = second;
@@ -18,6 +37,13 @@ public class Time
     int allMins = (totalTimeInSeconds - sek)/60;
     int min = allMins%60;
     int hour = (allMins-min)/60;
+
+    while (hour > 24)
+    {
+      second = 0;
+      minute = 0;
+      hour -= 24 ;
+    }
 
     this.hour = hour;
     this.minute = min;
@@ -40,7 +66,7 @@ public class Time
       hour++;
     }
 
-    if (hour >= 24)
+    if (hour == 24)
     {
       second = 0;
       minute = 0;
