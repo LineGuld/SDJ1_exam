@@ -20,10 +20,29 @@ public class Date
       this.year = -year;
 
     if (day < 1)
-      this.day = -day;
+      day = -day;
 
-    if (day > numberOfDaysInMonth(month))
-      this.day = numberOfDaysInMonth(month);
+    // Making sure the month doesn't get too many days
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+        || month == 10 || month == 12)
+      if (day > 31)
+        day = 31;
+
+    if (month == 4 || month == 6 || month == 9 || month == 11)
+      if (day > 30)
+        day = 30;
+
+      // Checkinh for leapyear in febuary
+    if (month == 2 && year % 4 == 0)
+      if (day > 29)
+      {
+        day = 29;
+      }
+      else if (year % 4 != 0)
+        if (day > 28)
+          day = 28;
+
+    this.day = day;
   }
 
   public Date copy()
@@ -50,30 +69,5 @@ public class Date
 
     return dayMonth.format(day) + "/" + dayMonth.format(month) + "/" + yyyy
         .format(year);
-  }
-
-  //Extra stuff for validator thingy
-  public int numberOfDaysInMonth(int monthNumber)
-  {
-    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8
-        || month == 10 || month == 12)
-      return 31;
-
-    if (month == 4 || month == 6 || month == 9 || month == 11)
-      return 30;
-
-    else if (isLeapYear() == false)
-      return 28;
-
-    return 29;
-  }
-
-  public boolean isLeapYear()
-  {
-    if ((year % 4 == 0) && (year % 100 != 0) || year % 400 == 0)
-      return true;
-
-    else
-      return false;
   }
 }

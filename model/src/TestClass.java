@@ -15,7 +15,6 @@ public class TestClass
     Date invalidDay = new Date(32, 12, 2013);
 
     Date dateCopy = date1.copy();
-/*
 
     System.out.println("Dates correct + toString works");
     System.out.println("Entered 11/12/2013:  " + date1);
@@ -27,8 +26,9 @@ public class TestClass
 
     System.out.println("\n ---Date 1 equals dateCopy, returns true---");
     System.out.println(date1.equals(dateCopy));
-*/
 
+
+/*
     // ----------------- TESTING TIME -------------------
     System.out.println("------ Time TEST -------- \n");
     // System.out.println("-------- constructor and toString test ------");
@@ -36,7 +36,7 @@ public class TestClass
     Time time2 = new Time(3662);
     Time time3 = new Time(13, 15, 00);
 
-    /*System.out.println("11:20:19 --- " + time1);
+System.out.println("11:20:19 --- " + time1);
     System.out.println("3662 (01:01:02)--- " + time2);
     System.out.println();
 
@@ -61,7 +61,8 @@ public class TestClass
     System.out.println("True: " + time2.isBefore(time1));
 
     System.out.println("\n--- time to test ---");
-    System.out.println("From time2 to time1 (about 10 hours): " +  time2.timeTo(time1));*/
+    System.out.println("From time2 to time1 (about 10 hours): " +  time2.timeTo(time1));
+
 
     // ----------------- TESTING FILE -------------------
     System.out.println("------- FILE TEST ---------");
@@ -70,7 +71,7 @@ public class TestClass
     File file3 = new File("file3", "doc");
     File file4 = new File("file2", "pdf");
 
-    /*System.out.println("---PDF---");
+System.out.println("---PDF---");
     System.out.println("False: " +  file1.isPDF());
     System.out.println("True: " + file2.isPDF());
 
@@ -80,7 +81,8 @@ public class TestClass
 
     System.out.println("\n ---- String ---");
     System.out.println(file1);
-    System.out.println(file2);*/
+    System.out.println(file2);
+
 
     File[] res = {file1, file2, file3, file4};
 
@@ -92,26 +94,28 @@ public class TestClass
     SkypeLesson skypeLesson1 = new SkypeLesson("SkypeLesson", date1, time1,
         time3, res, true, "link.com");
 
-    /*  System.out.println("--- LESSONS TO STRING ---");
+  System.out.println("--- LESSONS TO STRING ---");
     System.out.println(regularLesson);
     System.out.println();
     System.out.println(discordLesson1);
     System.out.println();
-    System.out.println(skypeLesson1);*/
+    System.out.println(skypeLesson1);
+
 
     Time early = new Time(8, 19, 55);
     Time late = new Time(21, 15, 05);
     Time lateish = new Time(21, 14, 00);
 
-/*    System.out.println("\n Lektion tider men de er dumme");
+    System.out.println("\n Lektion tider men de er dumme");
     Lesson tooearly = new Lesson("Early", date2, early, time1, res);
     Lesson toolate = new Lesson("Late", date2, time1, late, res);
 
     System.out.println("\n --- lesson getters ---");
-    // (9, 7, 2020)*/
+    // (9, 7, 2020)
+
     // 11:20:19 - 13:15:00
 
-  /*  File[] resources = regularLesson.getResources();
+  File[] resources = regularLesson.getResources();
     for (int i = 0; i < resources.length; i++)
     {
       System.out.println(resources[i].toString());
@@ -128,13 +132,15 @@ public class TestClass
     regularLesson.delayBy(120);
     System.out.println(regularLesson);
 
-    regularLesson.delayBy(121);*/
+    regularLesson.delayBy(121);
+
 
     Lesson delayTest = new Lesson("Delayed", date2, time1, lateish, res);
-   /* delayTest.delayBy(1);
+ delayTest.delayBy(1);
     System.out.println(delayTest);
     delayTest.delayBy(1);
-    System.out.println(delayTest);*/
+    System.out.println(delayTest);
+
 
     // ----------------- TESTING COURSE-------------------
     System.out.println("----- COURSE TEST -----");
@@ -159,15 +165,17 @@ public class TestClass
 
     //System.out.println(sdj);
 
-    /*System.out.println(
+System.out.println(
         "\n Number of lessons: " + sdj.getNumberOfLessons() + "\n Name: " + sdj
             .getName() + "\n Lesson on date (false): " + sdj
             .hasLessonOnDate(new Date(11, 11, 2000))
             + "\n Lesson on date (true): " + sdj
-            .hasLessonOnDate(new Date(17, 11, 1994)));*/
+            .hasLessonOnDate(new Date(17, 11, 1994)));
 
-    /*sdj.removeLesson(removeLesson);
-    sdj.removeLesson(delayTest);*/
+
+sdj.removeLesson(removeLesson);
+    sdj.removeLesson(delayTest);
+
 
     //System.out.println(sdj.getAllLessons());
     // System.out.println(sdj.getAllTopics());
@@ -181,12 +189,13 @@ public class TestClass
     Grade a = new Grade(12, sdj);
     Grade b = new Grade(10, sdj);
 
-   /* System.out.println(a.getGrade());
+ System.out.println(a.getGrade());
 
     System.out.println(b.getCourse());
 
     Grade gradeCopy = b.copy();
-    System.out.println(gradeCopy); */
+    System.out.println(gradeCopy);
+
 
     //-----------------TESTING STUDENT --------------
     System.out.println("---------- STUDENT TEST ----------");
@@ -236,6 +245,6 @@ public class TestClass
     System.out.println(Arrays.toString(myGrades));
 
     System.out.println("Grade average: " + line.getGradeAverage());
-    //
+    */
   }
 }
