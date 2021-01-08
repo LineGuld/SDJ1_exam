@@ -1,5 +1,6 @@
 import javax.sound.midi.Soundbank;
 import java.security.spec.RSAOtherPrimeInfo;
+import java.util.Arrays;
 
 public class TestClass
 {
@@ -30,7 +31,7 @@ public class TestClass
 
     // ----------------- TESTING TIME -------------------
     System.out.println("------ Time TEST -------- \n");
-    System.out.println("-------- constructor and toString test ------");
+    // System.out.println("-------- constructor and toString test ------");
     Time time1 = new Time(11, 20, 19);
     Time time2 = new Time(3662);
     Time time3 = new Time(13, 15, 00);
@@ -63,6 +64,7 @@ public class TestClass
     System.out.println("From time2 to time1 (about 10 hours): " +  time2.timeTo(time1));*/
 
     // ----------------- TESTING FILE -------------------
+    System.out.println("------- FILE TEST ---------");
     File file1 = new File("file1", "jpg");
     File file2 = new File("file2", "pdf");
     File file3 = new File("file3", "doc");
@@ -83,15 +85,15 @@ public class TestClass
     File[] res = {file1, file2, file3, file4};
 
     // ----------------- TESTING Lesson-------------------
-
+    System.out.println("------------- LESSON TEST -------------");
     Lesson regularLesson = new Lesson("Lesson", date2, time1, time3, res);
     DiscordLesson discordLesson1 = new DiscordLesson("DiscordLesson", date1,
         time1, time3, res, false, "channel1", true);
     SkypeLesson skypeLesson1 = new SkypeLesson("SkypeLesson", date1, time1,
         time3, res, true, "link.com");
 
-    System.out.println("--- LESSONS TO STRING ---");
- /*   System.out.println(regularLesson);
+    /*  System.out.println("--- LESSONS TO STRING ---");
+    System.out.println(regularLesson);
     System.out.println();
     System.out.println(discordLesson1);
     System.out.println();
@@ -135,6 +137,7 @@ public class TestClass
     System.out.println(delayTest);*/
 
     // ----------------- TESTING COURSE-------------------
+    System.out.println("----- COURSE TEST -----");
     DiscordLesson discordLesson2 = new DiscordLesson("DiscordLesson2",
         new Date(23, 7, 2001), time1, time3, res, true, "channel1", true);
     DiscordLesson discordLesson3 = new DiscordLesson("DiscordLesson3",
@@ -156,15 +159,15 @@ public class TestClass
 
     //System.out.println(sdj);
 
-    System.out.println(
+    /*System.out.println(
         "\n Number of lessons: " + sdj.getNumberOfLessons() + "\n Name: " + sdj
             .getName() + "\n Lesson on date (false): " + sdj
             .hasLessonOnDate(new Date(11, 11, 2000))
             + "\n Lesson on date (true): " + sdj
-            .hasLessonOnDate(new Date(17, 11, 1994)));
+            .hasLessonOnDate(new Date(17, 11, 1994)));*/
 
-    sdj.removeLesson(removeLesson);
-    sdj.removeLesson(delayTest);
+    /*sdj.removeLesson(removeLesson);
+    sdj.removeLesson(delayTest);*/
 
     //System.out.println(sdj.getAllLessons());
     // System.out.println(sdj.getAllTopics());
@@ -174,6 +177,65 @@ public class TestClass
     //System.out.println(sdj.getAllResources());
 
     // ----------------- TESTING GRADE-------------------
+    System.out.println("------ GRADE TEST --------");
+    Grade a = new Grade(12, sdj);
+    Grade b = new Grade(10, sdj);
 
+   /* System.out.println(a.getGrade());
+
+    System.out.println(b.getCourse());
+
+    Grade gradeCopy = b.copy();
+    System.out.println(gradeCopy); */
+
+    //-----------------TESTING STUDENT --------------
+    System.out.println("---------- STUDENT TEST ----------");
+    Student line = new Student(304432, "Line");
+    Student tina = new Student(123456, "Tina");
+    Student stefan = new Student(789012, "Stefan");
+
+    //extra courses to add to students lists
+    Course drawing = new Course("Botanical drawing");
+    Course knitting = new Course("Knitting patterns");
+    Course dadStuff = new Course("Being a dad 102");
+    Course c1 = new Course("c1");
+    Course c2 = new Course("c2");
+    Course c3 = new Course("c3");
+
+    //Adding courses to the students
+    line.addCourse(drawing);
+    line.addCourse(knitting);
+    line.addCourse(c1);
+    line.addCourse(c2);
+    line.addCourse(c3);
+
+    tina.addCourse(sdj);
+    tina.addCourse(knitting);
+
+    stefan.addCourse(sdj);
+    stefan.addCourse(dadStuff);
+
+    //Giving myself grades
+    System.out.println("Adding grades for a class I don't have");
+    line.addGrade(10, c1);
+    line.addGrade(0, knitting);
+    line.addGrade(12, drawing);
+    line.addGrade(12, sdj); //Grade for class I dont have
+
+
+    //Getting numbers and names
+    System.out.println("Stefan: " + stefan.getName());
+    System.out.println("123456: " +  tina.getStudentNUmber());
+
+    System.out.println("\n Courses for Line");
+    Course[] myCourses = line.getAllCourses();
+    System.out.println(Arrays.toString(myCourses));
+
+    System.out.println("\n grades for Line");
+    Grade[] myGrades = line.getAllGrades();
+    System.out.println(Arrays.toString(myGrades));
+
+    System.out.println("Grade average: " + line.getGradeAverage());
+    //
   }
 }

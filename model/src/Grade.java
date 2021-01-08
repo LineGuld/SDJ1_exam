@@ -27,7 +27,7 @@ public class Grade
 
   public String toString()
   {
-    String string = "Your grade is: " + getGrade() + " in " + getCourse() + "\n";
+    String string = "Your grade is: " + getGrade() + " in " + getCourse().getName() + "\n";
     return string;
   }
 }

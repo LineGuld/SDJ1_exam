@@ -11,6 +11,8 @@ public class Student
   {
     this.studentNUmber = studentNUmber;
     this.name = name;
+    courses = new ArrayList<>();
+    grades = new ArrayList<>();
   }
 
   public int getStudentNUmber()
@@ -47,6 +49,8 @@ public class Student
           course); //Turn information given into grade-object
       grades.add(theGrade);
     }
+    else
+      System.out.println("Student not taking that course, please enter correct course");
   }
 
   public double getGradeAverage()
